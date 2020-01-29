@@ -631,93 +631,6 @@ public static void post()
 
       System.out.println(list.size());
 
-      if(doortype.equals("X0-M30-00"))
-      {
-        for (int i = 0; i < list.size(); i++){
-
-          j = 0;
-
-            while ( list.get(i).length >1 && j < list.get(i).length )
-              {
-                out.println("Send, " + list.get(i)[j][0] );
-                out.println("Sleep, 10");
-                out.println("Send, {Tab}");
-                out.println("Sleep, 10");
-                out.println("Send, " + list.get(i)[j][1] );
-                out.println("Sleep, 10");
-                out.println("Send, {Tab}");
-                out.println("Sleep, 10");
-                out.println("Send, " + list.get(i)[j][2] );
-                out.println("Sleep, 10");
-                out.println("Click, 1147, 400 Left, , Down");
-                out.println("Sleep, 10");
-                out.println("Click, 1147, 400 Left, , Up");
-                out.println("Sleep, 500");
-
-              j++;
-            }
-          }
-      }else if (doortype.equals("X1-M31-01"))
-      {
-        for (int i = 0; i < list.size(); i++){
-          j = 0;
-
-            while ( list.get(i).length >1 && j < list.get(i).length )
-              {
-
-                if(list.get(i)[j][2] < 8)
-                {
-                  out.println("Sleep, 10");
-                  out.println("Click, 656, 375 Left, , Down");
-                  out.println("Sleep, 10");
-                  out.println("Click, 656, 375 Left, , Up");
-                  out.println("Sleep, 10");
-                  out.println("Send, {BackSpace}");
-                  out.println("Sleep, 10");
-                  out.println("Sleep, 500");
-                  out.println("Send, " + doortype + "-DF");
-
-                  out.println("Sleep, 500");
-                  out.println("Click, 500, 434 Left, , Down");
-                  out.println("Sleep, 10");
-                  out.println("Click, 500, 434 Left, , Up");
-                }else{
-                  out.println("Sleep, 10");
-                  out.println("Click, 656, 375 Left, , Down");
-                  out.println("Sleep, 10");
-                  out.println("Click, 656, 375 Left, , Up");
-                  out.println("Sleep, 10");
-                  out.println("Send, {BackSpace}");
-                  out.println("Sleep, 10");
-                  out.println("Sleep, 500");
-                  out.println("Send, " + doortype);
-
-                  out.println("Sleep, 500");
-                  out.println("Click, 500, 434 Left, , Down");
-                  out.println("Sleep, 10");
-                  out.println("Click, 500, 434 Left, , Up");
-                }
-
-
-                out.println("Send, " + list.get(i)[j][0] );
-                out.println("Sleep, 10");
-                out.println("Send, {Tab}");
-                out.println("Sleep, 10");
-                out.println("Send, " + list.get(i)[j][1] );
-                out.println("Sleep, 10");
-                out.println("Send, {Tab}");
-                out.println("Sleep, 10");
-                out.println("Send, " + list.get(i)[j][2] );
-                out.println("Sleep, 10");
-                out.println("Click, 1147, 476 Left, , Down");
-                out.println("Sleep, 10");
-                out.println("Click, 1147, 476 Left, , Up");
-                out.println("Sleep, 500");
-
-              j++;
-            }
-          }
-      }else{
         System.out.println("****************************************The door specified was not correct or is not supported.*******************************************");
         System.out.println("*******************************************************Using default**********************************************************************");
         for (int i = 0; i < list.size(); i++)
@@ -743,7 +656,7 @@ public static void post()
               j++;
             }
           }
-      }
+
 
       out.println("return");
   }catch(Exception e){
@@ -755,8 +668,6 @@ public static void post()
 public static void clear()
 {
   list.clear();
-  doortype = input("What is the new type of door? Enter it exactly: ");
-  doortype = doortype.toUpperCase();
 }
 
 public static void help()
@@ -780,8 +691,6 @@ public static void main(String[] args)
   {
   //  List<float[][]> list = new LinkedList<float[][]>();
 
-    doortype = input("What is the door type? Enter it exactly: ");
-    doortype = doortype.toUpperCase();
 
     while(true)
     {
