@@ -7,7 +7,8 @@ public class DoorMaster
 
 static Scanner sc = new Scanner(System.in);
 static List<float[][]> list = new LinkedList<float[][]>();
-static String doortype = "";
+static int Xpixel;
+static int Ypixel;
 
 public static String input(String question)
 {
@@ -146,10 +147,6 @@ public static float[][] build(String[] cabinet)
     case "OFFSETALL":
         offsetall(height);
         listToString(list);
-      break;
-
-    case "DOORTYPE":
-        doortype = input("Enter Door Type exactly: ");
       break;
 
     case "REMOVE":
@@ -648,9 +645,9 @@ public static void post()
                 out.println("Sleep, 10");
                 out.println("Send, " + list.get(i)[j][2] );
                 out.println("Sleep, 10");
-                out.println("Click, 1147, 400 Left, , Down");
+                out.println("Click, " + Xpixel + ", " + Ypixel +" Left, , Down");
                 out.println("Sleep, 10");
-                out.println("Click, 1147, 400 Left, , Up");
+                out.println("Click, " + Xpixel + ", " + Ypixel +" Left, , Up");
                 out.println("Sleep, 500");
 
               j++;
@@ -690,7 +687,8 @@ public static void help()
 public static void main(String[] args)
   {
   //  List<float[][]> list = new LinkedList<float[][]>();
-
+    Xpixel = Integer.parseInt(input("Enter pixel X Coordinate."));
+    Ypixel = Integer.parseInt(input("Enter pixel Y Coordinate."));
 
     while(true)
     {
