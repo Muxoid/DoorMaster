@@ -687,8 +687,18 @@ public static void help()
 public static void main(String[] args)
   {
   //  List<float[][]> list = new LinkedList<float[][]>();
-    Xpixel = Integer.parseInt(input("Enter pixel X Coordinate."));
-    Ypixel = Integer.parseInt(input("Enter pixel Y Coordinate."));
+    System.out.println("Default is X = 1150, Y = 475 press enter to use defaults.");
+    try
+    {
+      Xpixel = Integer.parseInt(input("Enter pixel X Coordinate."));
+      Ypixel = Integer.parseInt(input("Enter pixel Y Coordinate."));
+    }
+    catch(Exception err)
+    {
+      Xpixel = 1150;
+      Ypixel = 475;
+    }
+
 
     while(true)
     {
